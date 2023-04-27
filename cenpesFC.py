@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 from matplotlib.ticker import MaxNLocator
 
 #================================
-rodada_atual = 15
+rodada_atual = 2
 #================================
 
 # FUNÇÕES ====================
@@ -23,6 +23,7 @@ def figura_rodadas(scout):
             'GEORGE':gpt,
             'XINGU':xpt,
             'LEO':lpt,
+            'LUIZ':lzpt,
             'VITOR':vpt,
             'RAFAEL':rpt,
             }
@@ -30,6 +31,7 @@ def figura_rodadas(scout):
             'GEORGE':cartoletas_g,
             'XINGU':cartoletas_x,
             'LEO':cartoletas_l,
+            'LUIZ':cartoletas_lz,
             'VITOR':cartoletas_v,
             'RAFAEL':cartoletas_r,
             }
@@ -38,16 +40,17 @@ def figura_rodadas(scout):
     if scout == 'CARTOLETAS':
         prop = val
 
-    fig, axs = plt.subplots(5, 1,figsize=(15,30))
+    fig, axs = plt.subplots(6, 1,figsize=(15,30))
     fs = 20
     ls = 20
 
     m1 = max(prop['GEORGE'])
     m2 = max(prop['XINGU'])
     m3 = max(prop['LEO'])
-    m4 = max(prop['VITOR'])
-    m5 = max(prop['RAFAEL'])
-    maior = max(m1,m2,m3,m4,m5)
+    m4 = max(prop['LUIZ'])
+    m5 = max(prop['VITOR'])
+    m6 = max(prop['RAFAEL'])
+    maior = max(m1,m2,m3,m4,m5,m6)
 
     axs[0].bar(rods,prop['GEORGE'],color='darkgreen')
     axs[0].set_title('GEORGE',fontsize=fs)
@@ -55,10 +58,12 @@ def figura_rodadas(scout):
     axs[1].set_title('XINGU',fontsize=fs)
     axs[2].bar(rods,prop['LEO'],color='darkgreen')
     axs[2].set_title('LEO',fontsize=fs)
-    axs[3].bar(rods,prop['VITOR'],color='darkgreen')
-    axs[3].set_title('VITOR',fontsize=fs)
-    axs[4].bar(rods,prop['RAFAEL'],color='darkgreen')
-    axs[4].set_title('RAFAEL',fontsize=fs)
+    axs[3].bar(rods,prop['LUIZ'],color='darkgreen')
+    axs[3].set_title('LUIZ',fontsize=fs)
+    axs[4].bar(rods,prop['VITOR'],color='darkgreen')
+    axs[4].set_title('VITOR',fontsize=fs)
+    axs[5].bar(rods,prop['RAFAEL'],color='darkgreen')
+    axs[5].set_title('RAFAEL',fontsize=fs)
 
     for ax in axs.flat:
         ax.set(ylim=(0,1.05*maior))
@@ -96,6 +101,7 @@ files = {
          'GEORGE':'g_rodadas.csv',
          'XINGU':'x_rodadas.csv',
          'LEO':'l_rodadas.csv',
+         'LUIZ':'lz_rodadas.csv',
          'VITOR':'v_rodadas.csv',
          'RAFAEL':'r_rodadas.csv',
         }
@@ -110,17 +116,20 @@ for user in files:
         xingu = tmp
     elif user == 'LEO':
         leo = tmp
+    elif user == 'LUIZ':
+        luiz = tmp
     elif user == 'VITOR':
         vitor = tmp
     else:
         rafael = tmp
 
-usuarios = ['GEORGE','XINGU','LEO','VITOR','RAFAEL']
+usuarios = ['GEORGE','XINGU','LEO','LUIZ','VITOR','RAFAEL']
 
 data = {
         'GEORGE':george,
         'XINGU':xingu,
         'LEO':leo,
+        'LUIZ':luiz,
         'VITOR':vitor,
         'RAFAEL':rafael
         }
@@ -140,24 +149,28 @@ teste1 = st.sidebar.radio('Escolha a Totalização:',(
 gpt=[]
 xpt=[]
 lpt=[]
+lzpt=[]
 vpt=[]
 rpt=[]
 
 gval = []
 xval = []
 lval = []
+lzval = []
 vval = []
 rval = []
 
 cartoletas_g = []
 cartoletas_x = []
 cartoletas_l = []
+cartoletas_lz = []
 cartoletas_v = []
 cartoletas_r = []
 
 c_g = 100
 c_x = 100
 c_l = 100
+c_lz = 100
 c_v = 100
 c_r = 100
 
@@ -169,13 +182,15 @@ for user in usuarios:
         if user == 'GEORGE':
             gpt.append(p1)
             gval.append(v1)
-
         if user == 'XINGU':
             xpt.append(p1)
             xval.append(v1)
         if user == 'LEO':
             lpt.append(p1)
             lval.append(v1)
+        if user == 'LUIZ':
+            lzpt.append(p1)
+            lzval.append(v1)            
         if user == 'VITOR':
             vpt.append(p1)
             vval.append(v1)
@@ -187,11 +202,13 @@ for irod in range(rodada_atual):
     c_g = c_g + gval[irod]
     c_x = c_x + xval[irod]
     c_l = c_l + lval[irod]
+    c_lz = c_lz + lzval[irod]
     c_v = c_v + vval[irod]
     c_r = c_r + rval[irod]
     cartoletas_g.append(c_g)
     cartoletas_x.append(c_x)
     cartoletas_l.append(c_l)
+    cartoletas_lz.append(c_lz)
     cartoletas_v.append(c_v)
     cartoletas_r.append(c_r)
 
@@ -201,9 +218,9 @@ if teste1 == 'RODADA':
     tipo = st.radio('Escolha:',('PONTOS','VALORIZAÇÃO'))
 
     if tipo == 'PONTOS':
-        R = [gpt[rodada-1],xpt[rodada-1],lpt[rodada-1],vpt[rodada-1],rpt[rodada-1]]
+        R = [gpt[rodada-1],xpt[rodada-1],lpt[rodada-1],lzpt[rodada-1],vpt[rodada-1],rpt[rodada-1]]
     else:
-        R = [gval[rodada-1],xval[rodada-1],lval[rodada-1],vval[rodada-1],rval[rodada-1]]
+        R = [gval[rodada-1],xval[rodada-1],lval[rodada-1],lzval[rodada-1],vval[rodada-1],rval[rodada-1]]
 
     fig, ax = plt.subplots(figsize=(15,10))
     ax.bar(usuarios,R,color='darkgreen')
@@ -227,10 +244,10 @@ if (teste1 == 'TOTAL DE PONTOS') or (teste1 == 'CARTOLETAS'):
     st.pyplot(figura_rodadas(teste1))
 
 if (teste1 == 'RODADAS VENCEDORAS') or (teste1 == 'LANTERNAS'):
-    vitorias = [0,0,0,0,0]
-    lanternas = [0,0,0,0,0]
+    vitorias = [0,0,0,0,0,0]
+    lanternas = [0,0,0,0,0,0]
     for rod in range(rodada_atual):
-        tmp = [gpt[rod],xpt[rod],lpt[rod],vpt[rod],rpt[rod]]
+        tmp = [gpt[rod],xpt[rod],lpt[rod],lzpt[rod],vpt[rod],rpt[rod]]
         idx1 = tmp.index(max(tmp))
         idx2 = tmp.index(min(tmp))
         vitorias[idx1] = vitorias[idx1]+1
@@ -244,7 +261,7 @@ if (teste1 == 'RODADAS VENCEDORAS') or (teste1 == 'LANTERNAS'):
         st.pyplot(figura1(lanternas,teste1))
 
 if teste1 == 'PONTOS DO CAPITÃO':
-    capitao = [george['CAP'].sum(),xingu['CAP'].sum(),leo['CAP'].sum(),vitor['CAP'].sum(),rafael['CAP'].sum()]
+    capitao = [george['CAP'].sum(),xingu['CAP'].sum(),leo['CAP'].sum(),luiz['CAP'].sum(),vitor['CAP'].sum(),rafael['CAP'].sum()]
     st.pyplot(figura1(capitao,teste1))
 
 props = st.sidebar.checkbox('Mostrar SCOUTS')
@@ -261,7 +278,6 @@ if props:
         'DEFESA DE PÊNALTI',
         'DEFESA',
         'DESARME',
-        'PASSE INCOMPLETO',
         'GOL CONTRA',
         'CARTÃO VERMELHO',
         'CARTÃO AMARELO',
@@ -281,39 +297,37 @@ if props:
     if teste2 == 'CARTÃO AMARELO':
         prop = [george['CA'].sum(),xingu['CA'].sum(),leo['CA'].sum(),vitor['CA'].sum(),rafael['CA'].sum()]
     if teste2 == 'CARTÃO VERMELHO':
-        prop = [george['CV'].sum(),xingu['CV'].sum(),leo['CV'].sum(),vitor['CV'].sum(),rafael['CV'].sum()]
+        prop = [george['CV'].sum(),xingu['CV'].sum(),leo['CV'].sum(),luiz['CV'].sum(),vitor['CV'].sum(),rafael['CV'].sum()]
     if teste2 == 'SG':
-        prop = [george['SG'].sum(),xingu['SG'].sum(),leo['SG'].sum(),vitor['SG'].sum(),rafael['SG'].sum()]
+        prop = [george['SG'].sum(),xingu['SG'].sum(),leo['SG'].sum(),luiz['SG'].sum(),vitor['SG'].sum(),rafael['SG'].sum()]
     if teste2 == 'DEFESA':
-        prop = [george['DE'].sum(),xingu['DE'].sum(),leo['DE'].sum(),vitor['DE'].sum(),rafael['DE'].sum()]
+        prop = [george['DE'].sum(),xingu['DE'].sum(),leo['DE'].sum(),luiz['DE'].sum(),vitor['DE'].sum(),rafael['DE'].sum()]
     if teste2 == 'DESARME':
-        prop = [george['DS'].sum(),xingu['DS'].sum(),leo['DS'].sum(),vitor['DS'].sum(),rafael['DS'].sum()]
+        prop = [george['DS'].sum(),xingu['DS'].sum(),leo['DS'].sum(),luiz['DS'].sum(),vitor['DS'].sum(),rafael['DS'].sum()]
     if teste2 == 'PÊNALTI SOFRIDO':
-        prop = [george['PS'].sum(),xingu['PS'].sum(),leo['PS'].sum(),vitor['PS'].sum(),rafael['PS'].sum()]
-    if teste2 == 'PASSE INCOMPLETO':
-        prop = [george['PI'].sum(),xingu['PI'].sum(),leo['PI'].sum(),vitor['PI'].sum(),rafael['PI'].sum()]
+        prop = [george['PS'].sum(),xingu['PS'].sum(),leo['PS'].sum(),luiz['PS'].sum(),vitor['PS'].sum(),rafael['PS'].sum()]
     if teste2 == 'IMPEDIMENTO':
-        prop = [george['I'].sum(),xingu['I'].sum(),leo['I'].sum(),vitor['I'].sum(),rafael['I'].sum()]
+        prop = [george['I'].sum(),xingu['I'].sum(),leo['I'].sum(),luiz['I'].sum(),vitor['I'].sum(),rafael['I'].sum()]
     if teste2 == 'FINALIZAÇÃO NA TRAVE':
-        prop = [george['FT'].sum(),xingu['FT'].sum(),leo['FT'].sum(),vitor['FT'].sum(),rafael['FT'].sum()]
+        prop = [george['FT'].sum(),xingu['FT'].sum(),leo['FT'].sum(),luiz['FT'].sum(),vitor['FT'].sum(),rafael['FT'].sum()]
     if teste2 == 'FINALIZAÇÃO DEFENDIDA':
-        prop = [george['FD'].sum(),xingu['FD'].sum(),leo['FD'].sum(),vitor['FD'].sum(),rafael['FD'].sum()]
+        prop = [george['FD'].sum(),xingu['FD'].sum(),leo['FD'].sum(),luiz['FD'].sum(),vitor['FD'].sum(),rafael['FD'].sum()]
     if teste2 == 'FINALIZAÇÃO PRA FORA':
-        prop = [george['FF'].sum(),xingu['FF'].sum(),leo['FF'].sum(),vitor['FF'].sum(),rafael['FF'].sum()]
+        prop = [george['FF'].sum(),xingu['FF'].sum(),leo['FF'].sum(),luiz['FF'].sum(),vitor['FF'].sum(),rafael['FF'].sum()]
     if teste2 == 'FALTA SOFRIDA':
-        prop = [george['FS'].sum(),xingu['FS'].sum(),leo['FS'].sum(),vitor['FS'].sum(),rafael['FS'].sum()]
+        prop = [george['FS'].sum(),xingu['FS'].sum(),leo['FS'].sum(),luiz['FS'].sum(),vitor['FS'].sum(),rafael['FS'].sum()]
     if teste2 == 'FALTA COMETIDA':
-        prop = [george['FC'].sum(),xingu['FC'].sum(),leo['FC'].sum(),vitor['FC'].sum(),rafael['FC'].sum()]
+        prop = [george['FC'].sum(),xingu['FC'].sum(),leo['FC'].sum(),luiz['FC'].sum(),vitor['FC'].sum(),rafael['FC'].sum()]
     if teste2 == 'GOL SOFRIDO':
-        prop = [george['GS'].sum(),xingu['GS'].sum(),leo['GS'].sum(),vitor['GS'].sum(),rafael['GS'].sum()]
+        prop = [george['GS'].sum(),xingu['GS'].sum(),leo['GS'].sum(),luiz['GS'].sum(),vitor['GS'].sum(),rafael['GS'].sum()]
     if teste2 == 'DEFESA DE PÊNALTI':
-        prop = [george['DP'].sum(),xingu['DP'].sum(),leo['DP'].sum(),vitor['DP'].sum(),rafael['DP'].sum()]
+        prop = [george['DP'].sum(),xingu['DP'].sum(),leo['DP'].sum(),luiz['DP'].sum(),vitor['DP'].sum(),rafael['DP'].sum()]
     if teste2 == 'PÊNALTI COMETIDO':
-        prop = [george['PC'].sum(),xingu['PC'].sum(),leo['PC'].sum(),vitor['PC'].sum(),rafael['PC'].sum()]
+        prop = [george['PC'].sum(),xingu['PC'].sum(),leo['PC'].sum(),luiz['PC'].sum(),vitor['PC'].sum(),rafael['PC'].sum()]
     if teste2 == 'PÊNALTI PERDIDO':
-        prop = [george['PP'].sum(),xingu['PP'].sum(),leo['PP'].sum(),vitor['PP'].sum(),rafael['PP'].sum()]
+        prop = [george['PP'].sum(),xingu['PP'].sum(),leo['PP'].sum(),luiz['PP'].sum(),vitor['PP'].sum(),rafael['PP'].sum()]
     if teste2 == 'GOL CONTRA':
-        prop = [george['GC'].sum(),xingu['GC'].sum(),leo['GC'].sum(),vitor['GC'].sum(),rafael['GC'].sum()]
+        prop = [george['GC'].sum(),xingu['GC'].sum(),leo['GC'].sum(),luiz['GC'].sum(),vitor['GC'].sum(),rafael['GC'].sum()]
 
     prop = list(map(int, prop))
 
