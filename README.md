@@ -1,0 +1,3 @@
+# cartoleiros-do-cenpes
+
+Arquivos atualizados após a Rodada 15
