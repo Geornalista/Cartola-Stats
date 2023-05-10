@@ -223,7 +223,11 @@ if teste1 == 'RODADA':
         R = [gval[rodada-1],xval[rodada-1],lval[rodada-1],lzval[rodada-1],vval[rodada-1],rval[rodada-1]]
 
     fig, ax = plt.subplots(figsize=(15,10))
-    ax.bar(usuarios,R,color='darkgreen')
+    cor_bg = 'lightgray'
+    cor_leg = 'white'
+    cor_bar = 'darkblue'
+    ax.set_facecolor(cor_bg)
+    ax.bar(usuarios,R,color=cor_barcor_bar,edgecolor='k')
     ax.set_title('RODADA '+str(rodada),fontsize=20)
     ax.grid(axis='y',color='k',alpha=0.3)
     ax.tick_params(axis='both', which='major', labelsize=20)
@@ -233,7 +237,7 @@ if teste1 == 'RODADA':
         height = rect.get_height()
         ax.text(
             rect.get_x() + rect.get_width() / 2, height-10, label.round(2), ha="center", va="bottom",
-            color='white',fontsize=20
+            color=cor_leg,fontsize=20
         )
     st.pyplot(fig)
 
