@@ -62,7 +62,7 @@ def figura_rodadas(scout):
         height = rect.get_height()
         if height < 1.5:
             height = 0.5
-        ax.text(
+        axs[0].text(
              rect.get_x() + rect.get_width() / 2, 0.5 * height, label, ha="center", va="bottom",
              color=cor_leg,fontsize=20
         )
