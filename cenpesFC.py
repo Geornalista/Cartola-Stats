@@ -141,7 +141,7 @@ data = {
 
 scouts = list(george.columns)
 
-st.sidebar.title('CARTOLAFC\nPESQUISADORES DO CENPES')
+st.sidebar.title('CARTOLAFC\nPESQUISADORES DO CENPES\2023')
 
 teste1 = st.sidebar.radio('Escolha a Totalização:',(
             'RODADA',
@@ -274,71 +274,71 @@ if teste1 == 'PONTOS DO CAPITÃO':
                round(luiz['CAP'].sum(),2),round(vitor['CAP'].sum(),2),round(rafael['CAP'].sum(),2)]
     st.pyplot(figura1(capitao,teste1))
 
-props = st.sidebar.checkbox('Mostrar SCOUTS')
+#props = st.sidebar.checkbox('Mostrar SCOUTS')
 
-if props:
-    teste2 = st.sidebar.selectbox('Escolha o SCOUT:',(
-        'GOL',
-        'ASSISTÊNCIA',
-        'FINALIZAÇÃO DEFENDIDA',
-        'FINALIZAÇÃO PRA FORA',
-        'FINALIZAÇÃO NA TRAVE',
-        'SG',
-        'GOL SOFRIDO',
-        'DEFESA DE PÊNALTI',
-        'DEFESA',
-        'DESARME',
-        'GOL CONTRA',
-        'CARTÃO VERMELHO',
-        'CARTÃO AMARELO',
-        'FALTA SOFRIDA',
-        'FALTA COMETIDA',
-        'PÊNALTI SOFRIDO',
-        'PÊNALTI COMETIDO',
-        'PÊNALTI PERDIDO',
-        'IMPEDIMENTO'))
+#if props:
+#    teste2 = st.sidebar.selectbox('Escolha o SCOUT:',(
+#        'GOL',
+#        'ASSISTÊNCIA',
+#       'FINALIZAÇÃO DEFENDIDA',
+#        'FINALIZAÇÃO PRA FORA',
+#        'FINALIZAÇÃO NA TRAVE',
+#        'SG',
+#        'GOL SOFRIDO',
+#        'DEFESA DE PÊNALTI',
+#        'DEFESA',
+#        'DESARME',
+#        'GOL CONTRA',
+#        'CARTÃO VERMELHO',
+#        'CARTÃO AMARELO',
+#        'FALTA SOFRIDA',
+#        'FALTA COMETIDA',
+#        'PÊNALTI SOFRIDO',
+#        'PÊNALTI COMETIDO',
+#        'PÊNALTI PERDIDO',
+#        'IMPEDIMENTO'))
     
-    st.title(teste2)
+#    st.title(teste2)
 
-    if teste2 == 'GOL':
-        prop = [george['G'].sum(),xingu['G'].sum(),leo['G'].sum(),vitor['G'].sum(),rafael['G'].sum()]
-    if teste2 == 'ASSISTÊNCIA':
-        prop = [george['A'].sum(),xingu['A'].sum(),leo['A'].sum(),vitor['A'].sum(),rafael['A'].sum()]
-    if teste2 == 'CARTÃO AMARELO':
-        prop = [george['CA'].sum(),xingu['CA'].sum(),leo['CA'].sum(),vitor['CA'].sum(),rafael['CA'].sum()]
-    if teste2 == 'CARTÃO VERMELHO':
-        prop = [george['CV'].sum(),xingu['CV'].sum(),leo['CV'].sum(),luiz['CV'].sum(),vitor['CV'].sum(),rafael['CV'].sum()]
-    if teste2 == 'SG':
-        prop = [george['SG'].sum(),xingu['SG'].sum(),leo['SG'].sum(),luiz['SG'].sum(),vitor['SG'].sum(),rafael['SG'].sum()]
-    if teste2 == 'DEFESA':
-        prop = [george['DE'].sum(),xingu['DE'].sum(),leo['DE'].sum(),luiz['DE'].sum(),vitor['DE'].sum(),rafael['DE'].sum()]
-    if teste2 == 'DESARME':
-        prop = [george['DS'].sum(),xingu['DS'].sum(),leo['DS'].sum(),luiz['DS'].sum(),vitor['DS'].sum(),rafael['DS'].sum()]
-    if teste2 == 'PÊNALTI SOFRIDO':
-        prop = [george['PS'].sum(),xingu['PS'].sum(),leo['PS'].sum(),luiz['PS'].sum(),vitor['PS'].sum(),rafael['PS'].sum()]
-    if teste2 == 'IMPEDIMENTO':
-        prop = [george['I'].sum(),xingu['I'].sum(),leo['I'].sum(),luiz['I'].sum(),vitor['I'].sum(),rafael['I'].sum()]
-    if teste2 == 'FINALIZAÇÃO NA TRAVE':
-        prop = [george['FT'].sum(),xingu['FT'].sum(),leo['FT'].sum(),luiz['FT'].sum(),vitor['FT'].sum(),rafael['FT'].sum()]
-    if teste2 == 'FINALIZAÇÃO DEFENDIDA':
-        prop = [george['FD'].sum(),xingu['FD'].sum(),leo['FD'].sum(),luiz['FD'].sum(),vitor['FD'].sum(),rafael['FD'].sum()]
-    if teste2 == 'FINALIZAÇÃO PRA FORA':
-        prop = [george['FF'].sum(),xingu['FF'].sum(),leo['FF'].sum(),luiz['FF'].sum(),vitor['FF'].sum(),rafael['FF'].sum()]
-    if teste2 == 'FALTA SOFRIDA':
-        prop = [george['FS'].sum(),xingu['FS'].sum(),leo['FS'].sum(),luiz['FS'].sum(),vitor['FS'].sum(),rafael['FS'].sum()]
-    if teste2 == 'FALTA COMETIDA':
-        prop = [george['FC'].sum(),xingu['FC'].sum(),leo['FC'].sum(),luiz['FC'].sum(),vitor['FC'].sum(),rafael['FC'].sum()]
-    if teste2 == 'GOL SOFRIDO':
-        prop = [george['GS'].sum(),xingu['GS'].sum(),leo['GS'].sum(),luiz['GS'].sum(),vitor['GS'].sum(),rafael['GS'].sum()]
-    if teste2 == 'DEFESA DE PÊNALTI':
-        prop = [george['DP'].sum(),xingu['DP'].sum(),leo['DP'].sum(),luiz['DP'].sum(),vitor['DP'].sum(),rafael['DP'].sum()]
-    if teste2 == 'PÊNALTI COMETIDO':
-        prop = [george['PC'].sum(),xingu['PC'].sum(),leo['PC'].sum(),luiz['PC'].sum(),vitor['PC'].sum(),rafael['PC'].sum()]
-    if teste2 == 'PÊNALTI PERDIDO':
-        prop = [george['PP'].sum(),xingu['PP'].sum(),leo['PP'].sum(),luiz['PP'].sum(),vitor['PP'].sum(),rafael['PP'].sum()]
-    if teste2 == 'GOL CONTRA':
-        prop = [george['GC'].sum(),xingu['GC'].sum(),leo['GC'].sum(),luiz['GC'].sum(),vitor['GC'].sum(),rafael['GC'].sum()]
+#    if teste2 == 'GOL':
+#        prop = [george['G'].sum(),xingu['G'].sum(),leo['G'].sum(),vitor['G'].sum(),rafael['G'].sum()]
+#    if teste2 == 'ASSISTÊNCIA':
+#        prop = [george['A'].sum(),xingu['A'].sum(),leo['A'].sum(),vitor['A'].sum(),rafael['A'].sum()]
+#    if teste2 == 'CARTÃO AMARELO':
+#        prop = [george['CA'].sum(),xingu['CA'].sum(),leo['CA'].sum(),vitor['CA'].sum(),rafael['CA'].sum()]
+#    if teste2 == 'CARTÃO VERMELHO':
+#        prop = [george['CV'].sum(),xingu['CV'].sum(),leo['CV'].sum(),luiz['CV'].sum(),vitor['CV'].sum(),rafael['CV'].sum()]
+#    if teste2 == 'SG':
+#        prop = [george['SG'].sum(),xingu['SG'].sum(),leo['SG'].sum(),luiz['SG'].sum(),vitor['SG'].sum(),rafael['SG'].sum()]
+#    if teste2 == 'DEFESA':
+#        prop = [george['DE'].sum(),xingu['DE'].sum(),leo['DE'].sum(),luiz['DE'].sum(),vitor['DE'].sum(),rafael['DE'].sum()]
+#    if teste2 == 'DESARME':
+#        prop = [george['DS'].sum(),xingu['DS'].sum(),leo['DS'].sum(),luiz['DS'].sum(),vitor['DS'].sum(),rafael['DS'].sum()]
+#    if teste2 == 'PÊNALTI SOFRIDO':
+#        prop = [george['PS'].sum(),xingu['PS'].sum(),leo['PS'].sum(),luiz['PS'].sum(),vitor['PS'].sum(),rafael['PS'].sum()]
+#    if teste2 == 'IMPEDIMENTO':
+#        prop = [george['I'].sum(),xingu['I'].sum(),leo['I'].sum(),luiz['I'].sum(),vitor['I'].sum(),rafael['I'].sum()]
+#    if teste2 == 'FINALIZAÇÃO NA TRAVE':
+#        prop = [george['FT'].sum(),xingu['FT'].sum(),leo['FT'].sum(),luiz['FT'].sum(),vitor['FT'].sum(),rafael['FT'].sum()]
+#    if teste2 == 'FINALIZAÇÃO DEFENDIDA':
+#        prop = [george['FD'].sum(),xingu['FD'].sum(),leo['FD'].sum(),luiz['FD'].sum(),vitor['FD'].sum(),rafael['FD'].sum()]
+#    if teste2 == 'FINALIZAÇÃO PRA FORA':
+#        prop = [george['FF'].sum(),xingu['FF'].sum(),leo['FF'].sum(),luiz['FF'].sum(),vitor['FF'].sum(),rafael['FF'].sum()]
+#    if teste2 == 'FALTA SOFRIDA':
+#        prop = [george['FS'].sum(),xingu['FS'].sum(),leo['FS'].sum(),luiz['FS'].sum(),vitor['FS'].sum(),rafael['FS'].sum()]
+#    if teste2 == 'FALTA COMETIDA':
+#        prop = [george['FC'].sum(),xingu['FC'].sum(),leo['FC'].sum(),luiz['FC'].sum(),vitor['FC'].sum(),rafael['FC'].sum()]
+#    if teste2 == 'GOL SOFRIDO':
+#        prop = [george['GS'].sum(),xingu['GS'].sum(),leo['GS'].sum(),luiz['GS'].sum(),vitor['GS'].sum(),rafael['GS'].sum()]
+#    if teste2 == 'DEFESA DE PÊNALTI':
+#        prop = [george['DP'].sum(),xingu['DP'].sum(),leo['DP'].sum(),luiz['DP'].sum(),vitor['DP'].sum(),rafael['DP'].sum()]
+#    if teste2 == 'PÊNALTI COMETIDO':
+#        prop = [george['PC'].sum(),xingu['PC'].sum(),leo['PC'].sum(),luiz['PC'].sum(),vitor['PC'].sum(),rafael['PC'].sum()]
+#    if teste2 == 'PÊNALTI PERDIDO':
+#        prop = [george['PP'].sum(),xingu['PP'].sum(),leo['PP'].sum(),luiz['PP'].sum(),vitor['PP'].sum(),rafael['PP'].sum()]
+#    if teste2 == 'GOL CONTRA':
+#        prop = [george['GC'].sum(),xingu['GC'].sum(),leo['GC'].sum(),luiz['GC'].sum(),vitor['GC'].sum(),rafael['GC'].sum()]
 
-    prop = list(map(int, prop))
+#    prop = list(map(int, prop))
 
-    st.pyplot(figura1(prop,teste2))
+#    st.pyplot(figura1(prop,teste2))
