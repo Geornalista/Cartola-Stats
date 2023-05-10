@@ -58,7 +58,7 @@ def figura_rodadas(scout):
     axs[0].bar(rods,prop['GEORGE'],color=cor_bar)
     axs[0].set_title('GEORGE',fontsize=fs)
     rects = axs[0].patches
-    for rect, label in zip(rects, prop['GEORGE']):
+    for rect, label in zip(rects, round(prop['GEORGE'],2)):
         height = rect.get_height()
         if height < 1.5:
             height = 0.5
