@@ -66,17 +66,67 @@ def figura_rodadas(scout):
              rect.get_x() + rect.get_width() / 2, 0.5 * height, round(label,2), ha="center", va="bottom",
              color=cor_leg,fontsize=20
         )
+
     axs[1].bar(rods,prop['XINGU'],color=cor_bar)
     axs[1].set_title('XINGU',fontsize=fs)
+
+    rects = axs[1].patches
+    for rect, label in zip(rects,prop['XINGU']):
+        height = rect.get_height()
+        if height < 1.5:
+            height = 0.5
+        axs[1].text(
+             rect.get_x() + rect.get_width() / 2, 0.5 * height, round(label,2), ha="center", va="bottom",
+             color=cor_leg,fontsize=20
+        )
+        
     axs[2].bar(rods,prop['LEO'],color=cor_bar)
     axs[2].set_title('LEO',fontsize=fs)
+    rects = axs[2].patches
+    for rect, label in zip(rects,prop['LEO']):
+        height = rect.get_height()
+        if height < 1.5:
+            height = 0.5
+        axs[2].text(
+             rect.get_x() + rect.get_width() / 2, 0.5 * height, round(label,2), ha="center", va="bottom",
+             color=cor_leg,fontsize=20
+        )    
+        
     axs[3].bar(rods,prop['LUIZ'],color=cor_bar)
     axs[3].set_title('LUIZ',fontsize=fs)
+    rects = axs[3].patches
+    for rect, label in zip(rects,prop['LUIZ']):
+        height = rect.get_height()
+        if height < 1.5:
+            height = 0.5
+        axs[3].text(
+             rect.get_x() + rect.get_width() / 2, 0.5 * height, round(label,2), ha="center", va="bottom",
+             color=cor_leg,fontsize=20
+        )  
+        
     axs[4].bar(rods,prop['VITOR'],color=cor_bar)
     axs[4].set_title('VITOR',fontsize=fs)
+    rects = axs[4].patches
+    for rect, label in zip(rects,prop['VITOR']):
+        height = rect.get_height()
+        if height < 1.5:
+            height = 0.5
+        axs[4].text(
+             rect.get_x() + rect.get_width() / 2, 0.5 * height, round(label,2), ha="center", va="bottom",
+             color=cor_leg,fontsize=20
+        )   
+        
     axs[5].bar(rods,prop['RAFAEL'],color=cor_bar)
     axs[5].set_title('RAFAEL',fontsize=fs)
-
+    rects = axs[5].patches
+    for rect, label in zip(rects,prop['RAFAEL']):
+        height = rect.get_height()
+        if height < 1.5:
+            height = 0.5
+        axs[5].text(
+             rect.get_x() + rect.get_width() / 2, 0.5 * height, round(label,2), ha="center", va="bottom",
+             color=cor_leg,fontsize=20
+        ) 
     for ax in axs.flat:
         ax.set_facecolor(cor_bg)
         ax.set(ylim=(0,1.05*maior))
