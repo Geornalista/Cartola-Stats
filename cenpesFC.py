@@ -19,6 +19,9 @@ def valor(df,rodada):
     return val
 
 def figura_rodadas(scout):
+    cor_bg = 'lightgray'
+    cor_leg = 'white'
+    cor_bar = 'darkblue'
     pts = {
             'GEORGE':gpt,
             'XINGU':xpt,
@@ -52,20 +55,21 @@ def figura_rodadas(scout):
     m6 = max(prop['RAFAEL'])
     maior = max(m1,m2,m3,m4,m5,m6)
 
-    axs[0].bar(rods,prop['GEORGE'],color='darkgreen')
+    axs[0].bar(rods,prop['GEORGE'],color=cor_bar)
     axs[0].set_title('GEORGE',fontsize=fs)
-    axs[1].bar(rods,prop['XINGU'],color='darkgreen')
+    axs[1].bar(rods,prop['XINGU'],color=cor_bar)
     axs[1].set_title('XINGU',fontsize=fs)
-    axs[2].bar(rods,prop['LEO'],color='darkgreen')
+    axs[2].bar(rods,prop['LEO'],color=cor_bar)
     axs[2].set_title('LEO',fontsize=fs)
-    axs[3].bar(rods,prop['LUIZ'],color='darkgreen')
+    axs[3].bar(rods,prop['LUIZ'],color=cor_bar)
     axs[3].set_title('LUIZ',fontsize=fs)
-    axs[4].bar(rods,prop['VITOR'],color='darkgreen')
+    axs[4].bar(rods,prop['VITOR'],color=cor_bar)
     axs[4].set_title('VITOR',fontsize=fs)
-    axs[5].bar(rods,prop['RAFAEL'],color='darkgreen')
+    axs[5].bar(rods,prop['RAFAEL'],color=cor_bar)
     axs[5].set_title('RAFAEL',fontsize=fs)
 
     for ax in axs.flat:
+        ax.set_facecolor(cor_bg)
         ax.set(ylim=(0,1.05*maior))
         ax.grid(axis='y',color='k',alpha=0.1)
         ax.tick_params(axis='x', which='major', labelsize=ls)
@@ -141,7 +145,7 @@ data = {
 
 scouts = list(george.columns)
 
-st.sidebar.title('CARTOLAFC\nPESQUISADORES DO CENPES\2023')
+st.sidebar.title('CARTOLAFC\nPESQUISADORES DO CENPES\n2023')
 
 teste1 = st.sidebar.radio('Escolha a Totalização:',(
             'RODADA',
