@@ -236,7 +236,7 @@ if teste1 == 'RODADA':
     for rect, label in zip(rects, R):
         height = rect.get_height()
         ax.text(
-            rect.get_x() + rect.get_width() / 2, 0.85 * height, label.round(2), ha="center", va="bottom",
+            rect.get_x() + rect.get_width() / 2, 0.5 * height, label.round(2), ha="center", va="bottom",
             color=cor_leg,fontsize=20
         )
     st.pyplot(fig)
