@@ -95,7 +95,7 @@ def figura1(dado,scout):
 
 rods = []
 for i in range(rodada_atual):
-  rods.append(i+1)
+  rods.append('R'+str(i+1))
 
 files = {
          'GEORGE':'g_rodadas.csv',
