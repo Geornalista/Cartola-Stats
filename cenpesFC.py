@@ -57,6 +57,15 @@ def figura_rodadas(scout):
 
     axs[0].bar(rods,prop['GEORGE'],color=cor_bar)
     axs[0].set_title('GEORGE',fontsize=fs)
+    rects = axs[0].patches
+    for rect, label in zip(rects, prop['GEORGE']):
+        height = rect.get_height()
+        if height < 1.5:
+            height = 0.5
+        ax.text(
+             rect.get_x() + rect.get_width() / 2, 0.5 * height, label, ha="center", va="bottom",
+             color=cor_leg,fontsize=20
+        )
     axs[1].bar(rods,prop['XINGU'],color=cor_bar)
     axs[1].set_title('XINGU',fontsize=fs)
     axs[2].bar(rods,prop['LEO'],color=cor_bar)
@@ -69,15 +78,6 @@ def figura_rodadas(scout):
     axs[5].set_title('RAFAEL',fontsize=fs)
 
     for ax in axs.flat:
-        rects = ax.patches
-        for rect, label in zip(rects, dado):
-            height = rect.get_height()
-            if height < 1.5:
-                height = 0.5
-            ax.text(
-                rect.get_x() + rect.get_width() / 2, 0.5 * height, label, ha="center", va="bottom",
-                color=cor_leg,fontsize=20
-            )
         ax.set_facecolor(cor_bg)
         ax.set(ylim=(0,1.05*maior))
         ax.grid(axis='y',color='k',alpha=0.1)
