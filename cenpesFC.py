@@ -261,7 +261,8 @@ if (teste1 == 'RODADAS VENCEDORAS') or (teste1 == 'LANTERNAS'):
         st.pyplot(figura1(lanternas,teste1))
 
 if teste1 == 'PONTOS DO CAPITÃO':
-    capitao = [george['CAP'].sum(),xingu['CAP'].sum(),leo['CAP'].sum(),luiz['CAP'].sum(),vitor['CAP'].sum(),rafael['CAP'].sum()]
+    capitao = [round(george['CAP'].sum(),2),round(xingu['CAP'].sum(),2),round(leo['CAP'].sum(),2),
+               round(luiz['CAP'].sum(),2),round(vitor['CAP'].sum(),2),round(rafael['CAP'].sum(),2)]
     st.pyplot(figura1(capitao,teste1))
 
 props = st.sidebar.checkbox('Mostrar SCOUTS')
