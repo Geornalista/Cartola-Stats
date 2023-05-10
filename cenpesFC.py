@@ -75,8 +75,13 @@ def figura_rodadas(scout):
     return fig
 
 def figura1(dado,scout):
+    cor_bg = 'lightgray'
+    cor_leg = 'white'
+    cor_bar = 'darkblue'
+    
     fig, ax = plt.subplots(figsize=(15,10))
-    ax.bar(usuarios,dado,color='darkgreen')
+    ax.set_facecolor(cor_bg)
+    ax.bar(usuarios,dado,color=cor_bar,edgecolor='k')
     ax.set_title(scout,fontsize=20)
     ax.grid(axis='y',color='k',alpha=0.1)
     ax.yaxis.set_major_locator(MaxNLocator(integer=True))
@@ -88,8 +93,8 @@ def figura1(dado,scout):
         if height < 1.5:
           height = 0.5
         ax.text(
-            rect.get_x() + rect.get_width() / 2, 0.85*height, label, ha="center", va="bottom",
-            color='white',fontsize=20
+            rect.get_x() + rect.get_width() / 2, 0.5 * height, label, ha="center", va="bottom",
+            color=cor_leg,fontsize=20
         )
     return fig
 
