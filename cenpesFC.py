@@ -58,12 +58,12 @@ def figura_rodadas(scout):
     axs[0].bar(rods,prop['GEORGE'],color=cor_bar)
     axs[0].set_title('GEORGE',fontsize=fs)
     rects = axs[0].patches
-    for rect, label in zip(rects, round(prop['GEORGE'],2)):
+    for rect, label in zip(rects,prop['GEORGE']):
         height = rect.get_height()
         if height < 1.5:
             height = 0.5
         axs[0].text(
-             rect.get_x() + rect.get_width() / 2, 0.5 * height, label, ha="center", va="bottom",
+             rect.get_x() + rect.get_width() / 2, 0.5 * height, round(label,2), ha="center", va="bottom",
              color=cor_leg,fontsize=20
         )
     axs[1].bar(rods,prop['XINGU'],color=cor_bar)
