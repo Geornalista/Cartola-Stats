@@ -227,7 +227,7 @@ if teste1 == 'RODADA':
     cor_leg = 'white'
     cor_bar = 'darkblue'
     ax.set_facecolor(cor_bg)
-    ax.bar(usuarios,R,color=cor_barcor_bar,edgecolor='k')
+    ax.bar(usuarios,R,color=cor_bar,edgecolor='k')
     ax.set_title('RODADA '+str(rodada),fontsize=20)
     ax.grid(axis='y',color='k',alpha=0.3)
     ax.tick_params(axis='both', which='major', labelsize=20)
