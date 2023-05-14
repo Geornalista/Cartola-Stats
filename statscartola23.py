@@ -20,6 +20,11 @@ def boxsort(df, by, column,idx):
 
 cartola = pd.read_csv('cartola.csv')
 
+st.set_page_config(
+  page_title='Estatísticas do CARTOLA 2023',
+  page_icon='⚽',
+  layout="wide")
+
 st.sidebar.title('ESTATÍSTICAS\nCARTOLAF 2023')
 
 tipo = st.sidebar.radio('Escolha a Posição:',(
