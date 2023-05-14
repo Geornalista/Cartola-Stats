@@ -1,3 +1,1 @@
-# cartoleiros-do-cenpes 2023
-
-Arquivos atualizados após a Rodada 4
+# ESTATÍSTICAS 2023
