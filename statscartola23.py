@@ -4,6 +4,11 @@ import matplotlib.pyplot as plt
 import warnings
 warnings.filterwarnings('ignore')
 
+st.set_page_config(
+  page_title='ESTATÍSTICAS\nCARTOLAF 2023',
+  page_icon='⚽',
+  layout="wide")
+
 def boxsort(df, by, column,idx):
     df2 = pd.DataFrame({col:vals[column] for col, vals in df.groupby(by)})
     meds = df2.median().sort_values()
@@ -51,7 +56,7 @@ tmp61 = df6.query('CASA == 1')
 tmp62 = df6.query('FORA == 1')
 maxval6 = round(max(tmp61['PONTUACAO'].max(),tmp62['PONTUACAO'].max())+1)
 
-st.sidebar.title('ESTATÍSTICAS\nCARTOLAF 2023')
+#st.sidebar.title('ESTATÍSTICAS\nCARTOLAF 2023')
 
 tipo = st.sidebar.radio('Escolha a Posição:',(
             'GOLEIRO',
